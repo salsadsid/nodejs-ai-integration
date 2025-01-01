@@ -7,6 +7,9 @@ const feedBackResponseSchema = new Schema({
   },
   aiResponse: {
     type: String,
+  },
+  type: {
+    type: String,
     required: true,
   },
 });
