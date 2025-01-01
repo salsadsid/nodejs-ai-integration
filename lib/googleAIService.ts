@@ -1,5 +1,6 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { z } from "zod";
+import { generatePrompt } from "./prompt";
 
 // Define the expected structure of the response using Zod
 const responseSchema = z.object({
@@ -8,7 +9,6 @@ const responseSchema = z.object({
 
 // Ensure the API key is available
 const apiKey = process.env.GOOGLE_API_KEY;
-console.log(apiKey, "API KEY");
 if (!apiKey) {
   throw new Error("API key for Google GenerativeAI is not set.");
 }
@@ -23,7 +23,7 @@ const model = new ChatGoogleGenerativeAI({
 // Function to generate response
 export async function generateResponse(prompt: string): Promise<string | null> {
   try {
-    const response = await model.invoke(prompt);
+    const response = await model.invoke(generatePrompt(prompt));
 
     // console.log(response); // Inspect the response structure
 
