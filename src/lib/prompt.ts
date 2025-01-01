@@ -1,25 +1,38 @@
 export const generatePrompt = (prompt: string) => `
+You are an expert software developer. I am reporting a bug in my application, and I need a detailed and actionable solution. Below are the details:
 
-If the description does not clearly indicate a bug, state that the issue could be related to misconfiguration or misunderstanding of expected behavior. Recommend reviewing relevant documentation or setup guides.
+1. Issue Description:
+${prompt}
 
-Output format: 
-- If it is a bug, provide specific troubleshooting steps in the following format: html and only html:
-    <h1> Bug: </h1>
-    <p className="my-1"> [description of the issue] </p>    
-<h1 className="my-1"> Troubleshooting Steps: </h1>
-    <ul>
-  <li className="my-1 inline-block"> - Step 1: [troubleshooting step 1] </li>
-  <li className="my-1 inline-block"> - Step 2: [troubleshooting step 2] </li>
-  <li className="my-1 inline-block">  - Step 3: [troubleshooting step 3] </li>
-  <li className="my-1 inline-block">    - Step n: [troubleshooting step n] </li>
-  <li className="my-1 inline-block">  - As a last resort, [final troubleshooting step]. </li>
-    </ul>
+if description is not a bug. Simply write "This is not a bug."
 
-- If the issue is not a bug, provide a clear statement that it is not a bug.
+2. Steps to Reproduce:
 
+[Step 1: Describe the initial condition or state.]
+[Step 2: List actions taken to encounter the bug.]
+[Step 3: Provide any specific inputs or interactions.]
+3. Environment Details:
 
-The user’s description is: ${prompt}
+Operating System: [e.g., Windows 10, macOS Monterey]
+Browser or Application Version: [e.g., Chrome 112, Node.js 18.12.0]
+Framework/Language: [e.g., React 18, TypeScript 4.9]
+Backend/Database Info: [e.g., Express.js, MongoDB]
+4. Error Logs/Screenshots:
+[Include the exact error messages, logs, or screenshots if available.]
 
-no markdown output allowed
+5. Additional Information:
+
+[Mention any patterns observed or temporary fixes tried.]
+Based on the information above, provide:
+
+A probable cause for the issue.
+A detailed solution or workaround, including example code or configurations if applicable.
+Confirmation if this behavior is expected and not a bug.
+
+Output format: html 
+
+Please provide a detailed solution or workaround, including example code or configurations if applicable. 
+
+no markdown is allowed. 
 
 `;
