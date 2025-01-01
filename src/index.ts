@@ -2,8 +2,9 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
-import { connectDB } from "../config/db";
-import feedbackRoutes from "../routes/feedbackRoutes";
+
+import { connectDB } from "./config/db";
+import feedbackRoutes from "./routes/feedbackRoutes";
 dotenv.config();
 
 // Create a new express app instance
