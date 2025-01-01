@@ -18,7 +18,7 @@ connectDB();
 app.use("/api/feedback", feedbackRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+  res.send("Hello World!");
 });
 
 app.listen(port, () => {
